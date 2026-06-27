@@ -23,12 +23,40 @@ and dense punctuation. It is intentionally plain, sharp, and functional.
 ## Build
 
 ```sh
-python3 -m pip install fonttools
+python3 -m pip install -r requirements.txt
 python3 tools/build.py
 python3 tools/validate.py
+python3 tools/render_terminal_screenshots.py
 ```
 
 Generated fonts are written to `fonts/ttf/`.
+
+## Terminal Screenshots
+
+### Ghostty
+
+![Trace Mono in Ghostty](images/ghostty-trace-mono.png)
+
+Use the example config in `examples/ghostty.config`:
+
+```ini
+font-family = "Trace Mono Console"
+font-size = 16
+```
+
+### Kitty
+
+![Trace Mono in Kitty](images/kitty-trace-mono.png)
+
+Use the example config in `examples/kitty.conf`:
+
+```conf
+font_family Trace Mono Console
+font_size 16
+```
+
+The terminal sample text is in `tools/log-demo.sh`; the checked-in PNGs are
+generated from the built TTF via `tools/render_terminal_screenshots.py`.
 
 ## Install Locally On macOS
 

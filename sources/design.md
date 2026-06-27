@@ -14,11 +14,11 @@ Trace Mono starts from log text instead of prose.
 
 ## Shape Language
 
+- Pixel-outline construction for crisp terminal rendering.
 - Squared counters for repeatable terminal rhythm.
-- Short angular terminals to keep small sizes crisp.
 - Large punctuation with consistent optical centers.
-- Narrow but unmistakable uppercase to keep severity labels readable.
-- Digits are tall, open, and intentionally non-humanist.
+- Uppercase and lowercase share a compact scan-friendly rhythm.
+- Digits are tall, open, and intentionally distinct.
 
 ## First Character Set
 

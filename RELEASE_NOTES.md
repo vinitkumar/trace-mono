@@ -1,12 +1,20 @@
-# Trace Mono 1.0.0
+# Trace Mono 1.0.1
 
-First stable release of Trace Mono, an original monospace font family for
-terminals, consoles, and log-reading workflows.
+Corrected stable release of Trace Mono.
+
+This release supersedes `v1.0.0`. The `v1.0.0` TTFs were generated from a
+hand-rolled outline script and did not meet the quality bar for a real terminal
+font. `v1.0.1` rebuilds Trace Mono as an Iosevka-derived custom family using
+the checked-in build plan in `sources/iosevka-private-build-plans.toml`.
+
+Do not use `v1.0.0`.
 
 ## Included Fonts
 
 - Trace Mono Console Regular
+- Trace Mono Console Bold
 - Trace Mono Inspect Regular
+- Trace Mono Inspect Bold
 
 ## Install
 
@@ -27,6 +35,5 @@ Windows PowerShell:
 This release was built and checked with:
 
 ```sh
-python3 tools/build.py
 python3 tools/validate.py
 ```

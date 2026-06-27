@@ -1,6 +1,6 @@
 # Trace Mono
 
-Trace Mono is an original monospace font family designed for consoles,
+Trace Mono is an Iosevka-derived monospace font family designed for consoles,
 terminals, and long log-reading sessions.
 
 The first cut focuses on the text that shows up constantly in logs:
@@ -12,8 +12,7 @@ and dense punctuation. It is intentionally plain, sharp, and functional.
 - Clear distinction between `0 O o`, `1 l I |`, `5 S`, `2 Z`, and `8 B`.
 - Calm rhythm for timestamp-heavy text such as `2026-06-27T10:42:01.932Z`.
 - Strong bracket and punctuation shapes for JSON, tracebacks, and shell logs.
-- Original generated outlines, not a derivative of another font family.
-- Reproducible source build using `fontTools`.
+- Reproducible source build using a checked-in Iosevka custom build plan.
 
 ## Families
 
@@ -24,11 +23,19 @@ and dense punctuation. It is intentionally plain, sharp, and functional.
 
 ```sh
 python3 -m pip install -r requirements.txt
-python3 tools/build.py
 python3 tools/validate.py
 ```
 
 Generated fonts are written to `fonts/ttf/`.
+
+The production source plan is in `sources/iosevka-private-build-plans.toml`.
+Build it from an Iosevka source checkout by copying that file to
+`private-build-plans.toml`, then running:
+
+```sh
+npm run build -- ttf::TraceMonoConsole --jCmd=2
+npm run build -- ttf::TraceMonoInspect --jCmd=2
+```
 
 ## Terminal Screenshots
 
@@ -96,3 +103,7 @@ shows terminal/log-oriented samples.
 ## License
 
 SIL Open Font License 1.1. See `OFL.txt`.
+
+Trace Mono is derived from Iosevka and keeps the same OFL-compatible licensing
+model. See `sources/iosevka-private-build-plans.toml` for the custom build
+configuration.

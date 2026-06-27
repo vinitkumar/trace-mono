@@ -1,6 +1,8 @@
+Copyright (c) 2015-2026, Renzhi Li (aka. Belleve Invis, belleve@typeof.net)
 Copyright 2026 Vinit Kumar
 
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Trace Mono is a custom derivative build of Iosevka. This Font Software is
+licensed under the SIL Open Font License, Version 1.1.
 
 This license is copied below, and is also available with a FAQ at:
 https://openfontlicense.org

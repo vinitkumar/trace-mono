@@ -7,10 +7,7 @@ from fontTools.ttLib import TTFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FONTS = [
-    ROOT / "fonts" / "ttf" / "TraceMonoConsole-Regular.ttf",
-    ROOT / "fonts" / "ttf" / "TraceMonoInspect-Regular.ttf",
-]
+FONTS = sorted((ROOT / "fonts" / "ttf").glob("TraceMono*.ttf"))
 REQUIRED_TEXT = (
     "TRACE INFO WARN ERROR DEBUG "
     "2026-06-27T10:42:01.932Z "
@@ -37,18 +34,24 @@ def validate_font(path: Path) -> None:
         raise SystemExit(f"{path.name} missing glyphs for: {''.join(missing)}")
 
     widths = {font["hmtx"].metrics[name][0] for name in font.getGlyphOrder()}
-    if len(widths) != 1:
-        raise SystemExit(f"{path.name} is not monospace: widths={sorted(widths)}")
+    positive_widths = sorted(width for width in widths if width > 0)
+    base_width = positive_widths[0]
+    allowed_widths = {0, base_width, base_width * 2}
+    unexpected_widths = sorted(widths - allowed_widths)
+    if unexpected_widths:
+        raise SystemExit(f"{path.name} has unexpected advances: {unexpected_widths}")
 
     family = font["name"].getDebugName(1)
     full_name = font["name"].getDebugName(4)
     if not family or not full_name:
         raise SystemExit(f"{path.name} missing name table entries")
 
-    print(f"ok {path.name}: {family}, {len(mapping)} mapped glyphs, width={widths.pop()}")
+    print(f"ok {path.name}: {family}, {len(mapping)} mapped glyphs, width={base_width}")
 
 
 def main() -> None:
+    if not FONTS:
+        raise SystemExit("no Trace Mono TTF files found")
     for path in FONTS:
         validate_font(path)
 

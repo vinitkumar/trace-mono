@@ -14,11 +14,16 @@ Trace Mono starts from log text instead of prose.
 
 ## Shape Language
 
-- Pixel-outline construction for crisp terminal rendering.
-- Squared counters for repeatable terminal rhythm.
-- Large punctuation with consistent optical centers.
-- Uppercase and lowercase share a compact scan-friendly rhythm.
-- Digits are tall, open, and intentionally distinct.
+- Conventional monoline construction, closer to the expectations set by
+  well-known terminal fonts such as Menlo, SF Mono, JetBrains Mono, Berkeley
+  Mono, and Iosevka.
+- High x-height and open counters so lowercase words remain readable in dense
+  logs.
+- Wide, centered punctuation for timestamps, JSON, paths, and stack traces.
+- Tabular digits with explicit differentiation between `0 O o`, `1 l I |`,
+  `5 S`, `2 Z`, and `8 B`.
+- Personality should come from small terminal-focused decisions, not novelty
+  shapes.
 
 ## First Character Set
 

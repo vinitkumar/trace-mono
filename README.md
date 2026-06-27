@@ -26,7 +26,6 @@ and dense punctuation. It is intentionally plain, sharp, and functional.
 python3 -m pip install -r requirements.txt
 python3 tools/build.py
 python3 tools/validate.py
-python3 tools/render_terminal_screenshots.py
 ```
 
 Generated fonts are written to `fonts/ttf/`.
@@ -55,8 +54,13 @@ font_family Trace Mono Console
 font_size 16
 ```
 
-The terminal sample text is in `tools/log-demo.sh`; the checked-in PNGs are
-generated from the built TTF via `tools/render_terminal_screenshots.py`.
+The terminal sample text is in `tools/log-demo.sh`. The checked-in PNGs are
+real macOS window captures from Ghostty and Kitty using the built TTF installed
+in `~/Library/Fonts`.
+
+To refresh the screenshots on macOS, install the fonts, launch each terminal
+with the example config and `tools/log-demo.sh`, then capture the app window
+with `screencapture -l <window-id>`.
 
 ## Install Locally On macOS
 

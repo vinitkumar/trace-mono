@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trace Mono Specimen</title>
+    <style>
+      @font-face {
+        font-family: "Trace Mono Console";
+        src: url("../fonts/ttf/TraceMonoConsole-Regular.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Trace Mono Inspect";
+        src: url("../fonts/ttf/TraceMonoInspect-Regular.ttf") format("truetype");
+      }
+
+      :root {
+        color-scheme: dark;
+        --bg: #111315;
+        --panel: #191c1f;
+        --text: #e8ecef;
+        --muted: #9aa5ad;
+        --line: #31363b;
+        --accent: #55d6be;
+        --warn: #f4c95d;
+        --error: #ff6b6b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.5 system-ui, sans-serif;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      h1,
+      h2 {
+        letter-spacing: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      h2 {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 650;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+      }
+
+      .lede {
+        color: var(--muted);
+        margin: 12px 0 0;
+        max-width: 760px;
+      }
+
+      section {
+        margin-top: 28px;
+      }
+
+      pre {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin: 0;
+        overflow: auto;
+        padding: 18px;
+        tab-size: 2;
+      }
+
+      code {
+        font-family: "Trace Mono Console", monospace;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .inspect code {
+        font-family: "Trace Mono Inspect", monospace;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+
+      .ok {
+        color: var(--accent);
+      }
+
+      .warn {
+        color: var(--warn);
+      }
+
+      .error {
+        color: var(--error);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 style="font-family: 'Trace Mono Console', monospace">Trace Mono</h1>
+        <p class="lede">
+          A source-built monospace family designed around terminal rhythm,
+          log scanning, and ambiguity-resistant glyphs.
+        </p>
+      </header>
+
+      <section>
+        <h2>Console Cut</h2>
+        <pre><code><span class="ok">INFO</span>  2026-06-27T10:42:01.932Z api.gateway request_id=8f14e45f-ea5d-4c12-9281-7a8f67
+<span class="warn">WARN</span>  2026-06-27T10:42:02.104Z cache.miss key=user:1042 ttl=0ms path=/v1/users/1042
+<span class="error">ERROR</span> 2026-06-27T10:42:02.337Z db.pool timeout after 2500ms host=10.42.0.17 port=5432
+      at connect(pool.py:184) -> acquire(pool.py:92) -> handle_request(app.py:61)
+      payload={"status":503,"retry":true,"trace":"0O1lI|5S2Z8B"}</code></pre>
+      </section>
+
+      <section class="grid">
+        <div>
+          <h2>Ambiguity Check</h2>
+          <pre><code>0 O o
+1 l I |
+5 S s
+2 Z z
+8 B b
+rn m nn
+{} [] () &lt;&gt;
+.,:; '" ` / \</code></pre>
+        </div>
+        <div class="inspect">
+          <h2>Inspect Cut</h2>
+          <pre><code>GET  /healthz                 200  4.2ms
+POST /api/v1/events           202  18.7ms
+PUT  /api/v1/users/1024       409  31.8ms
+│
+├─ parser.decode_json
+├─ storage.write_batch
+└─ notifier.enqueue -> retry</code></pre>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -70,6 +70,24 @@ cp fonts/ttf/*.ttf ~/Library/Fonts/
 
 Then choose `Trace Mono Console` or `Trace Mono Inspect` in your terminal.
 
+## Install Script
+
+macOS and Linux:
+
+```sh
+./install.sh
+```
+
+Windows PowerShell:
+
+```powershell
+.\install.ps1
+```
+
+The Unix installer copies TTF files into `~/Library/Fonts` on macOS and
+`${XDG_DATA_HOME:-~/.local/share}/fonts/trace-mono` on Linux. The Windows
+installer copies the TTF files into the Windows Fonts folder.
+
 ## Specimen
 
 Open `specimen/index.html` after building. It uses the generated TTF files and

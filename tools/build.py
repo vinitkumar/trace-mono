@@ -12,6 +12,7 @@ from fontTools.ttLib import newTable
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "fonts" / "ttf"
+VERSION = "1.0.0"
 UPM = 1000
 ASCENT = 840
 DESCENT = -240
@@ -625,10 +626,10 @@ def build_cut(cut: Cut) -> None:
         {
             "familyName": cut.family,
             "styleName": "Regular",
-            "uniqueFontIdentifier": f"{cut.family} Regular 0.1.0",
+            "uniqueFontIdentifier": f"{cut.family} Regular {VERSION}",
             "fullName": f"{cut.family} Regular",
             "psName": cut.family.replace(" ", "") + "-Regular",
-            "version": "Version 0.1.0",
+            "version": f"Version {VERSION}",
             "manufacturer": "Vinit Kumar",
             "designer": "Vinit Kumar",
             "description": "Original terminal and log-reading monospace font.",
